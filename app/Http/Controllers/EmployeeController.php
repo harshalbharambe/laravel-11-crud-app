@@ -74,12 +74,10 @@ class EmployeeController extends Controller
             'address' => 'required',
         ]);
 
-        $newEmployee = [
-            'name' => $request->name,
-            'address' => $request->address
-            ];
+        $employee->name = $request->name;
+        $employee->address = $request->address;
 
-        $employee->update($newEmployee);
+        $employee->update();
 
         return redirect()->route('employees.index');
     }
